@@ -26,9 +26,9 @@ It was built intentionally in stages, backend logic first, then safety validatio
 ## What I did
 
 - Designed and built a 3-layer Spring Boot backend: SQL generation, safety validation, and execution, each as a separate, independently testable service
-- Wrote the prompt from scratch, including schema context and few-shot examples, and iterated on it based on real test failures
+- Built and iterated on the prompt (schema context + few-shot examples) based on real test failures, using Claude as a pair-programmer.
 - Built a React frontend that calls the backend, displays the generated SQL transparently, and renders results as a table
-- Wrote a 20-question eval set by hand, covering simple queries, joins, aggregations, and deliberately ambiguous/unanswerable questions
+- Built a 20-question eval set with AI help, then checked it against the real schema and seed data, which caught questions that referenced columns that don’t exist
 - Ran the eval, diagnosed every failure by reading the actual generated SQL, and fixed 3 of them with targeted prompt changes
 - Documented the 1 failure that resisted 3 different prompting attempts, with a clear explanation of why, rather than hiding it
 
