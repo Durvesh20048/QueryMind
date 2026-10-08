@@ -4,7 +4,14 @@ Ask a database a question in plain English, get back real data, with the SQL sho
 
 QueryMind takes a natural-language question, generates SQL using a locally-run LLM (Llama 3.2 via Ollama), validates that SQL for safety, executes it against a database, and returns the results as a table. No cloud API calls, no data leaves your machine.
 
-**Live demo:** _(add a screenshot or short GIF here before sharing)_
+![QueryMind demo](docs/demo3.png)
+
+## Screenshots
+
+| | |
+|---|---|
+| ![Demo 2](docs/demo2.png) | ![Demo 3](docs/demo1.png) |
+| ![Demo 4](docs/demo4.png) | |_
 
 ---
 
