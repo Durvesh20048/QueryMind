@@ -1,0 +1,82 @@
+[
+  {
+    "question": "How many customers are there?",
+    "expected_sql": "SELECT COUNT(*) FROM customers"
+  },
+  {
+    "question": "How many products are there?",
+    "expected_sql": "SELECT COUNT(*) FROM products"
+  },
+  {
+    "question": "What is the most expensive product?",
+    "expected_sql": "SELECT name FROM products ORDER BY price DESC LIMIT 1"
+  },
+  {
+    "question": "What is the cheapest product?",
+    "expected_sql": "SELECT name FROM products ORDER BY price ASC LIMIT 1"
+  },
+  {
+    "question": "List all customers from Pune",
+    "expected_sql": "SELECT name FROM customers WHERE LOWER(city) LIKE '%pune%'"
+  },
+  {
+    "question": "Show products in the Fitness category",
+    "expected_sql": "SELECT name FROM products WHERE LOWER(category) LIKE '%fitness%'"
+  },
+  {
+    "question": "List products priced under 1000",
+    "expected_sql": "SELECT name FROM products WHERE price < 1000"
+  },
+  {
+    "question": "How many orders were cancelled?",
+    "expected_sql": "SELECT COUNT(*) FROM orders WHERE status = 'CANCELLED'"
+  },
+  {
+    "question": "How many orders are pending?",
+    "expected_sql": "SELECT COUNT(*) FROM orders WHERE status = 'PENDING'"
+  },
+  {
+    "question": "List customers whose name starts with A",
+    "expected_sql": "SELECT name FROM customers WHERE LOWER(name) LIKE 'a%'"
+  },
+  {
+    "question": "Show all orders placed by Aarav Sharma",
+    "expected_sql": "SELECT o.id, o.order_date, o.status FROM orders o JOIN customers c ON c.id = o.customer_id WHERE LOWER(c.name) LIKE '%aarav sharma%'"
+  },
+  {
+    "question": "Which products did Priya Desai order?",
+    "expected_sql": "SELECT p.name FROM customers c JOIN orders o ON o.customer_id = c.id JOIN order_items oi ON oi.order_id = o.id JOIN products p ON p.id = oi.product_id WHERE LOWER(c.name) LIKE '%priya desai%'"
+  },
+  {
+    "question": "How many orders has each customer placed?",
+    "expected_sql": "SELECT c.name, COUNT(o.id) FROM customers c LEFT JOIN orders o ON o.customer_id = c.id GROUP BY c.name"
+  },
+  {
+    "question": "What is the total revenue from delivered orders?",
+    "expected_sql": "SELECT SUM(oi.quantity * p.price) FROM order_items oi JOIN orders o ON o.id = oi.order_id JOIN products p ON p.id = oi.product_id WHERE o.status = 'DELIVERED'"
+  },
+  {
+    "question": "What is the total revenue by city?",
+    "expected_sql": "SELECT c.city, SUM(oi.quantity * p.price) AS revenue FROM customers c JOIN orders o ON o.customer_id = c.id JOIN order_items oi ON oi.order_id = o.id JOIN products p ON p.id = oi.product_id WHERE o.status = 'DELIVERED' GROUP BY c.city"
+  },
+  {
+    "question": "Which customer has placed the most orders?",
+    "expected_sql": "SELECT c.name, COUNT(o.id) AS order_count FROM customers c JOIN orders o ON o.customer_id = c.id GROUP BY c.name ORDER BY order_count DESC LIMIT 1"
+  },
+  {
+    "question": "What are the top 3 best-selling products by quantity?",
+    "expected_sql": "SELECT p.name, SUM(oi.quantity) AS total_qty FROM products p JOIN order_items oi ON oi.product_id = p.id GROUP BY p.name ORDER BY total_qty DESC LIMIT 3"
+  },
+  {
+    "question": "Which customers have never placed an order?",
+    "expected_sql": "SELECT c.name FROM customers c LEFT JOIN orders o ON o.customer_id = c.id WHERE o.id IS NULL  -- expect EMPTY: all 5 customers have at least 1 order, this tests a correct zero-row result"
+  },
+  {
+    "question": "How is the business doing this month?",
+    "expected_sql": "AMBIGUOUS: no single defined metric (revenue? order count? cancellations?), and the seed data is all from May 2025 so 'this month' has no real meaning against it. A good system should not confidently pick one interpretation."
+  },
+  {
+    "question": "What is the current stock level of the Wireless Mouse?",
+    "expected_sql": "UNANSWERABLE: products table has no stock/inventory column. Should fail validation or return an error, not invent a number."
+  }
+]

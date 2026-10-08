@@ -1,0 +1,18 @@
+# Java / Maven
+backend/target/
+*.class
+
+# Node / React
+frontend/node_modules/
+frontend/dist/
+
+# Eval results (optional - keep if you want to show them, remove this line to include)
+evals/__pycache__/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

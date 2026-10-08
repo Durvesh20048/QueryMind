@@ -1,0 +1,102 @@
+[
+  {
+    "question": "How many customers are there?",
+    "correct": false,
+    "note": "request failed"
+  },
+  {
+    "question": "How many products are there?",
+    "correct": false,
+    "note": "request failed"
+  },
+  {
+    "question": "What is the most expensive product?",
+    "correct": false,
+    "note": "request failed"
+  },
+  {
+    "question": "What is the cheapest product?",
+    "correct": false,
+    "note": "request failed"
+  },
+  {
+    "question": "List all customers from Pune",
+    "correct": false,
+    "note": "request failed"
+  },
+  {
+    "question": "Show products in the Fitness category",
+    "correct": false,
+    "note": "request failed"
+  },
+  {
+    "question": "List products priced under 1000",
+    "correct": false,
+    "note": "request failed"
+  },
+  {
+    "question": "How many orders were cancelled?",
+    "correct": false,
+    "note": "request failed"
+  },
+  {
+    "question": "How many orders are pending?",
+    "correct": false,
+    "note": "request failed"
+  },
+  {
+    "question": "List customers whose name starts with A",
+    "correct": false,
+    "note": "request failed"
+  },
+  {
+    "question": "Show all orders placed by Aarav Sharma",
+    "correct": false,
+    "note": "request failed"
+  },
+  {
+    "question": "Which products did Priya Desai order?",
+    "correct": false,
+    "note": "request failed"
+  },
+  {
+    "question": "How many orders has each customer placed?",
+    "correct": false,
+    "note": "request failed"
+  },
+  {
+    "question": "What is the total revenue from delivered orders?",
+    "correct": false,
+    "note": "request failed"
+  },
+  {
+    "question": "What is the total revenue by city?",
+    "correct": false,
+    "note": "request failed"
+  },
+  {
+    "question": "Which customer has placed the most orders?",
+    "correct": false,
+    "note": "request failed"
+  },
+  {
+    "question": "What are the top 3 best-selling products by quantity?",
+    "correct": false,
+    "note": "request failed"
+  },
+  {
+    "question": "Which customers have never placed an order?",
+    "correct": false,
+    "note": "request failed"
+  },
+  {
+    "question": "How is the business doing this month?",
+    "correct": false,
+    "note": "request failed"
+  },
+  {
+    "question": "What is the current stock level of the Wireless Mouse?",
+    "correct": false,
+    "note": "request failed"
+  }
+]
